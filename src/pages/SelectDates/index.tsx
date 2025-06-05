@@ -14,6 +14,16 @@ export default function SelectDates() {
         value={dates as [Dayjs | null, Dayjs | null]}
         onChange={values => setDates(values as [Dayjs | null, Dayjs | null])}
         style={{ width: '100%', marginBottom: 24 }}
+        dateRender={current => (
+          <div className="ant-picker-cell-inner custom-date-cell">
+            <div>{current.date()}</div>
+            <div className="dots">
+              <span className="dot dot-1" />
+              <span className="dot dot-2" />
+              <span className="dot dot-3" />
+            </div>
+          </div>
+        )}
       />
       <Button
         type="primary"
