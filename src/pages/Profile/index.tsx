@@ -7,7 +7,7 @@ export default function Profile() {
   const nav = useNavigate();
 
   return (
-    <div style={{ padding: 24 }}>
+    <div className="page">
       <h2>Profile</h2>
       <p>Email: {user?.email}</p>
       <Button type="primary" onClick={() => nav('/profile/edit')} block style={{ marginBottom: 8 }}>

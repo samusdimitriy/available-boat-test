@@ -8,12 +8,12 @@ export default function SelectDates() {
   const nav = useNavigate();
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: 'center', marginBottom: 16 }}>Select dates</h2>
+    <div className="page">
+      <h2>Select dates</h2>
       <DatePicker.RangePicker
         value={dates as [Dayjs | null, Dayjs | null]}
         onChange={values => setDates(values as [Dayjs | null, Dayjs | null])}
-        style={{ width: '100%', marginBottom: 24 }}
+        className="w-100 mb-24"
         dateRender={current => (
           <div className="ant-picker-cell-inner custom-date-cell">
             <div>{current.date()}</div>
