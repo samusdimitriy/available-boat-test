@@ -1,6 +1,8 @@
 import { Form, Input, Button, message } from 'antd';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Card from '../../components/Card';
+import Header from '../../components/Header';
 
 export default function Register() {
   const { register } = useAuth();
@@ -19,18 +21,20 @@ export default function Register() {
 
   return (
     <div className="page">
-      <h2>Create account</h2>
-      <Form layout="vertical" onFinish={onFinish}>
-        <Form.Item name="email" rules={[{ required: true, type: 'email' }]}>
-          <Input placeholder="Email" />
-        </Form.Item>
-        <Form.Item name="password" rules={[{ required: true, min: 6 }]}>
-          <Input.Password placeholder="Password" />
-        </Form.Item>
-        <Button type="primary" htmlType="submit" block>
-          Sign up
-        </Button>
-      </Form>
+      <Header title="Create account" />
+      <Card>
+        <Form layout="vertical" onFinish={onFinish}>
+          <Form.Item name="email" rules={[{ required: true, type: 'email' }]}>
+            <Input placeholder="Email" />
+          </Form.Item>
+          <Form.Item name="password" rules={[{ required: true, min: 6 }]}>
+            <Input.Password placeholder="Password" />
+          </Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Sign up
+          </Button>
+        </Form>
+      </Card>
     </div>
   );
 }

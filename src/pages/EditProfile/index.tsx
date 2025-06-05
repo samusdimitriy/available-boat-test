@@ -2,6 +2,8 @@ import { Form, Input, Button, message } from 'antd';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { updateEmail, updatePassword } from 'firebase/auth';
+import Header from '../../components/Header';
+import Card from '../../components/Card';
 
 export default function EditProfile() {
   const { user } = useAuth();
@@ -25,18 +27,20 @@ export default function EditProfile() {
 
   return (
     <div className="page">
-      <h2>Edit Profile</h2>
-      <Form layout="vertical" onFinish={onFinish} initialValues={{ email: user?.email }}>
-        <Form.Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}> 
-          <Input />
-        </Form.Item>
-        <Form.Item label="New password" name="password">
-          <Input.Password />
-        </Form.Item>
-        <Button type="primary" htmlType="submit" block>
-          Save
-        </Button>
-      </Form>
+      <Header title="Edit Profile" />
+      <Card>
+        <Form layout="vertical" onFinish={onFinish} initialValues={{ email: user?.email }}>
+          <Form.Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item label="New password" name="password">
+            <Input.Password />
+          </Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Save
+          </Button>
+        </Form>
+      </Card>
     </div>
   );
 }

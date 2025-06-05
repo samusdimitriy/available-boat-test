@@ -1,9 +1,13 @@
-import { Button, Calendar, Badge } from 'antd';
+import { Calendar, Badge, Button } from 'antd';
 import { useYachts } from '../../contexts/YachtContext';
 import { useNavigate } from 'react-router-dom';
 import dayjs, { Dayjs } from 'dayjs';
+import Header from '../../components/Header';
+import Card from '../../components/Card';
+import BottomBar from '../../components/BottomBar';
+import styles from './index.module.scss';
 
-export default function SelectDates() {
+export default function CalendarPage() {
   const { dates, setDates } = useYachts();
   const nav = useNavigate();
 
@@ -48,23 +52,26 @@ export default function SelectDates() {
   };
 
   return (
-    <div className="page">
-      <h2>Select dates</h2>
-      <Calendar
-        fullscreen={false}
-        value={dates[0] || dayjs()}
-        onSelect={onSelect}
-        dateFullCellRender={renderCell}
-        className="mb-24"
-      />
+    <div className="page calendar-page">
+      <Header title="Calendar" />
+      <Card className={styles.calendarWrapper}>
+        <Calendar
+          fullscreen={false}
+          value={dates[0] || dayjs()}
+          onSelect={onSelect}
+          dateFullCellRender={renderCell}
+        />
+      </Card>
       <Button
         type="primary"
         block
         disabled={!dates[0] || !dates[1]}
         onClick={() => nav('/yachts')}
+        style={{ marginTop: 16 }}
       >
         Show available yachts
       </Button>
+      <BottomBar />
     </div>
   );
 }

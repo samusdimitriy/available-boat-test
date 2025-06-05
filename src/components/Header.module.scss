@@ -1,0 +1,13 @@
+.header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--c-bg-main);
+  color: var(--c-text-primary);
+}
+
+.icon {
+  font-size: 20px;
+}

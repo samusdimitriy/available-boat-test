@@ -1,27 +1,28 @@
 import { useParams } from 'react-router-dom';
-import { Button } from 'antd';
 import { useYachts } from '../../contexts/YachtContext';
+import Header from '../../components/Header';
+import FAB from '../../components/FAB';
+import { StarFilled } from '@ant-design/icons';
 
 export default function YachtDetails() {
   const { id } = useParams();
-  const { yachts, toggleSave, saved } = useYachts();
+  const { yachts, toggleSave } = useYachts();
 
   const yacht = yachts.find(y => y.id === id);
   if (!yacht) return null;
 
   return (
     <div>
+      <Header title="Yacht Details" />
       <img src={yacht.image} alt="" style={{ width: '100%' }} />
       <div className="page">
         <h2>{yacht.name}</h2>
         <p>{yacht.description}</p>
-        <Button
-          type={saved.includes(yacht.id) ? 'primary' : 'default'}
-          onClick={() => toggleSave(yacht.id)}
-        >
-          {saved.includes(yacht.id) ? 'Saved' : 'Save'}
-        </Button>
       </div>
+      <FAB
+        icon={<StarFilled />}
+        onClick={() => toggleSave(yacht.id)}
+      />
     </div>
   );
 }
