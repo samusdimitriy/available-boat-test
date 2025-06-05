@@ -12,7 +12,7 @@ export default function YachtDetails() {
   return (
     <div>
       <img src={yacht.image} alt="" style={{ width: '100%' }} />
-      <div style={{ padding: 24 }}>
+      <div className="page">
         <h2>{yacht.name}</h2>
         <p>{yacht.description}</p>
         <Button
