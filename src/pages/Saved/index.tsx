@@ -9,8 +9,8 @@ export default function Saved() {
   const data = yachts.filter(y => saved.includes(y.id));
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: 'center', marginBottom: 16 }}>Saved Yachts</h2>
+    <div className="page">
+      <h2>Saved Yachts</h2>
       <List
         itemLayout="horizontal"
         dataSource={data}

@@ -17,8 +17,8 @@ export default function Login() {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: 'center', marginBottom: 32 }}>Welcome back</h2>
+    <div className="page">
+      <h2>Welcome back</h2>
       <Form layout="vertical" onFinish={onFinish}>
         <Form.Item name="email" rules={[{ required: true, type: 'email' }]}>
           <Input placeholder="Email" />
@@ -30,7 +30,7 @@ export default function Login() {
           Log in
         </Button>
       </Form>
-      <div style={{ textAlign: 'center', marginTop: 16 }}>
+      <div className="text-center mt-16">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </div>
     </div>

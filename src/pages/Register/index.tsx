@@ -18,8 +18,8 @@ export default function Register() {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: 'center', marginBottom: 32 }}>Create account</h2>
+    <div className="page">
+      <h2>Create account</h2>
       <Form layout="vertical" onFinish={onFinish}>
         <Form.Item name="email" rules={[{ required: true, type: 'email' }]}>
           <Input placeholder="Email" />

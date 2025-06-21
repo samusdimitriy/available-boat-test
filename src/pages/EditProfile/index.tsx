@@ -24,7 +24,7 @@ export default function EditProfile() {
   };
 
   return (
-    <div style={{ padding: 24 }}>
+    <div className="page">
       <h2>Edit Profile</h2>
       <Form layout="vertical" onFinish={onFinish} initialValues={{ email: user?.email }}>
         <Form.Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}> 

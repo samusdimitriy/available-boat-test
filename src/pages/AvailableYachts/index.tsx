@@ -7,8 +7,8 @@ export default function AvailableYachts() {
   const nav = useNavigate();
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ textAlign: 'center', marginBottom: 16 }}>Available Yachts</h2>
+    <div className="page">
+      <h2>Available Yachts</h2>
       <List
         itemLayout="horizontal"
         dataSource={yachts}
